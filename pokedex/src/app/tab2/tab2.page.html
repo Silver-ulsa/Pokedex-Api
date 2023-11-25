@@ -7,13 +7,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
-  
   <ion-item>
     <ion-searchbar>
     </ion-searchbar>
     <ion-button color="medium" fill="clear" size="default"><ion-icon name="funnel-outline"></ion-icon></ion-button>
   </ion-item>
   
+  <ion-list>
+    <ion-item *ngFor = "let pokemon of pokemons" [routerLink]="['/pokemon-profile', pokemon.id]">
+      <ion-label>{{pokemon.name}}</ion-label>
+      <ion-label>#{{pokemon.id.toString().padStart(3,0)}}</ion-label>
+      <ion-label>{{pokemon.type}}</ion-label>
+      <img src="{{pokemon.sprites.front_default}}" alt="">
+    </ion-item>
+  </ion-list>
+
 </ion-content>

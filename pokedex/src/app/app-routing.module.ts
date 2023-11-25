@@ -6,6 +6,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  {
+    path: 'pokemon-profile/:id',
+    loadChildren: () => import('./pokemon-profile/pokemon-profile.module').then( m => m.PokemonProfilePageModule)
+  },
+
 ];
 @NgModule({
   imports: [

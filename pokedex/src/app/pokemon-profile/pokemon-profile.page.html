@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pokemon Profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tab2"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="pokemon">
+    <ion-card-content class="ion-text-center">
+      <img src="{{pokemon.sprites.front_default}}" alt="">
+      <ion-card-title>{{pokemon.name}}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
