@@ -1,0 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>action-sheet</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="/" text="atrás"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button color = "primary" expand ="full" (click) = "presentActionSheet()">Monstrar Action Sheet</ion-button>
+</ion-content>

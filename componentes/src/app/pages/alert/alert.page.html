@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>alert</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="/" text="atrás"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button color="primaty" expand = "full" (click) = "presentAlert()">
+    Mostrar alerta
+  </ion-button>
+
+  <ion-button color="tertiary" expand = "full" (click) = "presentAlertaPrompt()">
+    Alerta con Prompt
+  </ion-button>
+
+</ion-content>

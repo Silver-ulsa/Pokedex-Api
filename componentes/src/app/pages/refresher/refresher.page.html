@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Refresher</ion-title>
+    <ion-buttons>
+      <ion-back-button
+        slot="start"
+        defaultHref="/"
+        text="atrás"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh) = "handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <h2>Jala hacia abajo para refrescar</h2>
+  <ion-list>
+    <ion-item *ngFor="let item of items; let i = index">
+      Item {{i+1}}
+    </ion-item>
+  </ion-list>
+</ion-content>

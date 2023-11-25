@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Grids</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="/" text="atrás"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>Hola</ion-col>
+      <ion-col>Hola</ion-col>
+      <ion-col>Hola</ion-col>
+      <ion-col>Hola</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="8">
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+      <ion-col size="10">
+        <ion-button expand="full">Botón</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor = "let c of [1,1,1,1,1,1,1,1,1,1,1,1]; let i = index" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+        Itime {{i+1}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor = "let c of [1,1,1,1,1]">
+        <ion-card>
+          <ion-img src="/assets/shapes.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis modi illum ad corrupti? Optio, ratione voluptates iste laboriosam magnam pariatur! Minus soluta eveniet, magnam dolores quia porro in neque necessitatibus!
+              </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- Name	Value	Description
+xs	100%	Don't set the grid width for xs screens
+sm	540px	Set grid width to 540px when (min-width: 576px)
+md	720px	Set grid width to 720px when (min-width: 768px)
+lg	960px	Set grid width to 960px when (min-width: 992px)
+xl	1140px	Set grid width to 1140px when (min-width: 1200px) -->

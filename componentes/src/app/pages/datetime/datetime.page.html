@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Date and Time</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="/" text="atrás"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>Fechas Importantes</ion-list-header>
+    <ion-item>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <ion-datetime placeholder = "Nacimiento" value="{{fechaNacimiento | date: 'yyy-MM-dd'}}" display-format = "YYYY MM DD" cancelText="Cancelar" ></ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>
