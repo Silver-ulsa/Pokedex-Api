@@ -9,9 +9,25 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngIf="pokemon">
+      <ion-button color="medium" fill="clear"><ion-icon name="heart-outline" size="large"></ion-icon></ion-button>
     <ion-card-content class="ion-text-center">
+      <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
       <img src="{{pokemon.sprites.front_default}}" alt="">
       <ion-card-title>{{pokemon.name}}</ion-card-title>
+      <ion-card-subtitle> 
+        <ion-chip *ngFor="let pokemon of pokemon.types">
+          <ion-label>{{pokemon.type.name}}</ion-label>
+        </ion-chip>
+      </ion-card-subtitle>
+
+      <ion-list>
+        <ion-item>Hp: {{pokemon.stats[0].base_stat}} <ion-progress-bar value="{{pokemon.stats[0].base_stat/100}}"></ion-progress-bar></ion-item>
+        <ion-item>Attack: {{pokemon.stats[1].base_stat}} <ion-progress-bar value="{{pokemon.stats[1].base_stat/100}}"></ion-progress-bar></ion-item>
+        <ion-item>Defense: {{pokemon.stats[2].base_stat}} <ion-progress-bar value="{{pokemon.stats[2].base_stat/100}}"></ion-progress-bar></ion-item>
+        <ion-item>Special Attack: {{pokemon.stats[3].base_stat}} <ion-progress-bar value="{{pokemon.stats[3].base_stat/100}}"></ion-progress-bar></ion-item>
+        <ion-item>Special Defense: {{pokemon.stats[4].base_stat}} <ion-progress-bar value="{{pokemon.stats[4].base_stat/100}}"></ion-progress-bar></ion-item>
+        <ion-item>Speed: {{pokemon.stats[5].base_stat}} <ion-progress-bar value="{{pokemon.stats[5].base_stat/100}}"></ion-progress-bar></ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>
