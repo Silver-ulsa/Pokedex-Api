@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { PokeApiService } from '../services/poke-api.service';
+import { concatMap, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -21,17 +22,21 @@ export class Tab2Page implements OnInit {
   }
 
   loadPokemon(event : any){
-    this.pokeApiService.getPokemons(this.offset).subscribe((res: any) => {
-      console.log(res);
-      this.pokemons.push(res);
-      this.offset += 1;
-      if (event) {
-        event.target.complete();
-      }
-      if (this.offset < this.offset) {
-        this.loadPokemon(event);
-      }
-    });
+  of(this.offset).pipe(
+    concatMap(offset => this.pokeApiService.getPokemons(offset)),
+    catchError(error => {
+      console.error(error);
+      return of([]);
+    })
+  ).subscribe((res: any) => {
+    console.log(res);
+    this.pokemons.push(res);
+    this.pokemons.sort((a, b) => a.id - b.id);
+    this.offset += 1;
+    if (event) {
+      event.target.complete();
+    }
+  });
   }
 
   search(){
