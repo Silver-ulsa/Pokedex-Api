@@ -1,12 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Quiz
+    <ion-title class="ion-text-center">
+      Who's that pokemon?
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <ion-item *ngIf="selectedPokemon" class="ion-justify-content-center ion-align-items-center">  
+    <img src="{{selectedPokemon.sprites.front_default}}" alt="" width="200">
+  </ion-item>
+
+  <ion-grid>
+    <ion-row *ngFor="let pokemon of quizPokemon">
+      <ion-col>
+        <ion-button [disabled]="pokemon.disabled" [color]="pokemon.color" expand="full" (click)="verifyAnswer(pokemon.name)">{{pokemon.name}}</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="resetQuiz()"  color="light" expand="full"  > <ion-icon name="repeat-outline"></ion-icon> Reset</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 
 
 </ion-content>
