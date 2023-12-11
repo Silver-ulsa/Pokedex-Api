@@ -74,6 +74,51 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  //* variables de color de pokemons segun su tipo
+
+  //? color primario 
+--ion-color-fire: #FF9741;
+--ion-color-plant: #38BF4B;
+--ion-color-water: #3692DC;
+--ion-color-electric: #FFCC00;
+--ion-color-normal: #919AA2;
+--ion-color-fighting: #E0306A;
+--ion-color-flying: #89AAE3;
+--ion-color-poison: #B567CE;
+--ion-color-ground: #E87236;
+--ion-color-bug: #83C300; 
+--ion-color-rock: #C8B686;
+--ion-color-ghost: #4C6AB2;
+--ion-color-steel: #5A8EA2;
+--ion-color-psychic: #FF6675;
+--ion-color-ice: #4CD1C0;
+--ion-color-dragon: #7038f8;
+--ion-color-dark: #705848;
+--ion-color-fairy: #FB89EB;
+
+//? color secundario
+
+--ion-color-fireChip: #D48341 ;
+--ion-color-plantChip: #35A349;
+--ion-color-waterChip: #337FBD;
+--ion-color-electricChip: #fae078;
+--ion-color-normalChip: #6E7881;
+--ion-color-fightingChip: #B22755;
+--ion-color-flyingChip: #6687C1;
+--ion-color-poisonChip: #9343AD;
+--ion-color-groundChip: #C95A22;
+--ion-color-bugChip: #71A60D; 
+--ion-color-rockChip: #8C7841;
+--ion-color-ghostChip: #37518F;
+--ion-color-steelChip: #42768A;
+--ion-color-psychicChip: #CB3F4D;
+--ion-color-iceChip: #2CAE9E;
+--ion-color-dragonChip: #566fbe;
+--ion-color-darkChip: #a29288;
+--ion-color-fairyChip: #D066C1;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -249,5 +294,4 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-//* variables de color de pokemons segun su tipo
-
+ 

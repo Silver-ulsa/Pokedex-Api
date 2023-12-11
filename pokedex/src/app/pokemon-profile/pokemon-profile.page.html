@@ -8,14 +8,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngIf="pokemon">
+  <ion-card *ngIf="pokemon" [ngStyle]="{'background-color': getColorByType(pokemon.types[0].type.name)}">
       <ion-button (click)="addFavoritePokemon()" [color]="isPressed ? 'danger' : 'medium' "  [fill]="isPressed ? 'solid' : 'clear'"><ion-icon name="heart-outline" size="large"></ion-icon></ion-button>
     <ion-card-content class="ion-text-center">
       <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
       <img src="{{pokemon.sprites.front_default}}" alt="">
       <ion-card-title>{{pokemon.name}}</ion-card-title>
       <ion-card-subtitle> 
-        <ion-chip *ngFor="let pokemon of pokemon.types">
+        <ion-chip *ngFor="let pokemon of pokemon.types" [ngStyle]="{'background-color': getColorByTypeChip(pokemon.type.name)}">
           <ion-label>{{pokemon.type.name}}</ion-label>
         </ion-chip>
       </ion-card-subtitle>

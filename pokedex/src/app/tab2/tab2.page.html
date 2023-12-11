@@ -8,26 +8,31 @@
   <ion-item>
     <ion-searchbar [(ngModel)]="searchTerm" placeholder="pikachu" >
     </ion-searchbar>
-    <ion-button color="medium" fill="clear" size="default"><ion-icon name="funnel-outline"></ion-icon></ion-button>
+    <ion-button (click)="filters()" color="warning" fill="clear" size="default"><ion-icon name="funnel-outline"></ion-icon>
+    </ion-button>
   </ion-item>
 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-card *ngFor = 'let pokemon of search()' [routerLink]="['/pokemon-profile', pokemon.id]">
-      <ion-card-content>
-        <ion-card-title>{{pokemon.name}}</ion-card-title>
-        <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
-        <img src="{{pokemon.sprites.front_default}}" alt="">
-        <ion-card-subtitle> 
-          <ion-chip *ngFor="let pokemon of pokemon.types">
-            <ion-label>{{pokemon.type.name}}</ion-label>
-          </ion-chip>
-        </ion-card-subtitle>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor = 'let pokemon of search()'>
+        <ion-card [routerLink]="['/pokemon-profile', pokemon.id]" [ngStyle]="{'background-color': getColorByType(pokemon.types[0].type.name)}" style="margin: 1px;">
+          <ion-card-content>
+            <ion-card-title>{{pokemon.name}}</ion-card-title>
+            <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
+            <img src="{{pokemon.sprites.front_default}}" height="100" width="100">
+            <ion-card-subtitle> 
+              <ion-chip *ngFor="let pokemon of pokemon.types" [ngStyle]="{'background-color': getColorByTypeChip(pokemon.type.name)}">
+                <ion-label>{{pokemon.type.name}}</ion-label>
+              </ion-chip>
+            </ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 
 
