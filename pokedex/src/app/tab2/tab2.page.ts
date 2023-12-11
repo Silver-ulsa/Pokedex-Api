@@ -22,21 +22,21 @@ export class Tab2Page implements OnInit {
   }
 
   loadPokemon(event : any){
-  of(this.offset).pipe(
-    concatMap(offset => this.pokeApiService.getPokemons(offset)),
-    catchError(error => {
-      console.error(error);
-      return of([]);
-    })
-  ).subscribe((res: any) => {
-    console.log(res);
-    this.pokemons.push(res);
-    this.pokemons.sort((a, b) => a.id - b.id);
-    this.offset += 1;
-    if (event) {
-      event.target.complete();
-    }
-  });
+      of(this.offset).pipe(
+        concatMap(offset => this.pokeApiService.getPokemons(offset)),
+        catchError(error => {
+          console.error(error);
+          return of([]);
+        })
+    ).subscribe((res: any) => {
+        // console.log(res);
+        this.pokemons.push(res);
+        this.pokemons.sort((a, b) => a.id - b.id);
+        this.offset += 1;
+        if (event) {
+          event.target.complete();
+        }
+      });
   }
 
   search(){

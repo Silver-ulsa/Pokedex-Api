@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-text-center">
       Search
     </ion-title>
   </ion-toolbar>
@@ -15,7 +15,6 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-
     <ion-card *ngFor = 'let pokemon of search()' [routerLink]="['/pokemon-profile', pokemon.id]">
       <ion-card-content>
         <ion-card-title>{{pokemon.name}}</ion-card-title>

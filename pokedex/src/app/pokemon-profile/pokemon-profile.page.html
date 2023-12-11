@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngIf="pokemon">
-      <ion-button color="medium" fill="clear"><ion-icon name="heart-outline" size="large"></ion-icon></ion-button>
+      <ion-button (click)="addFavoritePokemon()" [color]="isPressed ? 'danger' : 'medium' "  [fill]="isPressed ? 'solid' : 'clear'"><ion-icon name="heart-outline" size="large"></ion-icon></ion-button>
     <ion-card-content class="ion-text-center">
       <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
       <img src="{{pokemon.sprites.front_default}}" alt="">

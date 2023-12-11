@@ -8,10 +8,12 @@ import { from } from 'rxjs';
 })
 export class PokeApiService {
 
+  favoritePokemons: any[] = [];
+
   constructor(private http: HttpClient) { }
 
   getPokemons(offset = 0){
-    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=890&offset=${offset}`).pipe(
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=${offset}`).pipe(
       mergeMap((response: any) => from(response.results)),
       mergeMap((pokemon: any) => this.http.get(pokemon.url)),
     );
@@ -21,6 +23,18 @@ export class PokeApiService {
 
   getPokemon(id = 0){
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  }
+
+  getFavoritePokemons(){
+    return this.favoritePokemons;
+  }
+
+  addFavoritePokemon(pokemon: any){
+    this.favoritePokemons.push(pokemon);
+  }
+
+  deletFavoritePokemon(pokemon: any){
+    this.favoritePokemons = this.favoritePokemons.filter(poke => poke.name !== pokemon.name);
   }
 
 }

@@ -1,12 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-text-center">
       Favorites
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label color="medium" class="ion-text-left"  class = "ion-text-wrap">
+      This is the list of your favorite Pokémon! :3
+    </ion-label>
+  </ion-item>
 
   
+  <ion-list>
+    <ion-card *ngFor = 'let pokemon of favoriteList' [routerLink]="['/pokemon-profile', pokemon.id]">
+      <ion-card-content>
+        <ion-card-title>{{pokemon.name}}</ion-card-title>
+        <ion-card-subtitle>#{{pokemon.id.toString().padStart(3,0)}}</ion-card-subtitle>
+        <img src="{{pokemon.sprites.front_default}}" alt="">
+        <ion-card-subtitle> 
+          <ion-chip *ngFor="let pokemon of pokemon.types">
+            <ion-label>{{pokemon.type.name}}</ion-label>
+          </ion-chip>
+        </ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
 </ion-content>
